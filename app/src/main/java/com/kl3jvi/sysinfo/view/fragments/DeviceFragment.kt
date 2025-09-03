@@ -24,6 +24,7 @@ class DeviceFragment : Fragment(R.layout.device_fragment), KoinComponent {
     }
 
     private fun setupUIElements() {
+        setupDeviceHeader()
         binding.listWithItems.layoutManager = LinearLayoutManager(requireContext())
         binding.listWithItems.withModels {
             dataViewModel.deviceData.forEach {
@@ -32,6 +33,19 @@ class DeviceFragment : Fragment(R.layout.device_fragment), KoinComponent {
                     data(it)
                 }
             }
+        }
+    }
+
+    private fun setupDeviceHeader() {
+        val deviceName = dataViewModel.deviceData.firstOrNull { it.title == "Device Name" }?.details ?: "Unknown Device"
+        val isOptimusRhino = deviceName.contains("Optimus", ignoreCase = true) && deviceName.contains("Rhino", ignoreCase = true)
+        
+        binding.deviceNameText.text = deviceName
+        
+        if (isOptimusRhino) {
+            binding.phoneLogoImage.setImageResource(R.drawable.ic_optimus_rhino)
+        } else {
+            binding.phoneLogoImage.setImageResource(R.drawable.ic_devicee)
         }
     }
 
