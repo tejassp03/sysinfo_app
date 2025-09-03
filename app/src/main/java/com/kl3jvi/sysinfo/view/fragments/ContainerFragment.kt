@@ -20,7 +20,7 @@ class ContainerFragment : Fragment(R.layout.fragment_container) {
         R.drawable.ic_storage,
         R.drawable.ic_cpu,
         R.drawable.ic_battery,
-        R.drawable.ic_screen
+        R.drawable.ic_camera
     )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

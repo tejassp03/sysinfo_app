@@ -7,6 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.sysinfo.R
 import com.kl3jvi.sysinfo.view.fragments.BatteryFragment
 import com.kl3jvi.sysinfo.view.fragments.CPUFragment
+import com.kl3jvi.sysinfo.view.fragments.CameraFragment
 import com.kl3jvi.sysinfo.view.fragments.DashboardFragment
 import com.kl3jvi.sysinfo.view.fragments.DeviceFragment
 import com.kl3jvi.sysinfo.view.fragments.StorageFragment
@@ -23,7 +24,8 @@ class SectionsPagerAdapter(
         SYSTEM(R.string.tab_text_3, ::SystemFragment),
         STORAGE(R.string.tab_text_4, ::StorageFragment),
         CPU(R.string.tab_text_5, { CPUFragment() }),
-        BATTERY(R.string.tab_text_6, ::BatteryFragment);
+        BATTERY(R.string.tab_text_6, ::BatteryFragment),
+        CAMERA(R.string.tab_text_7, ::CameraFragment);
 //        SCREEN(R.string.tab_text_7, ::ScreenFragment);
 
         companion object {
