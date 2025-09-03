@@ -10,6 +10,7 @@ import com.kl3jvi.sysinfo.view.fragments.CPUFragment
 import com.kl3jvi.sysinfo.view.fragments.CameraFragment
 import com.kl3jvi.sysinfo.view.fragments.DashboardFragment
 import com.kl3jvi.sysinfo.view.fragments.DeviceFragment
+import com.kl3jvi.sysinfo.view.fragments.ScreenFragment
 import com.kl3jvi.sysinfo.view.fragments.StorageFragment
 import com.kl3jvi.sysinfo.view.fragments.SystemFragment
 
@@ -25,8 +26,8 @@ class SectionsPagerAdapter(
         STORAGE(R.string.tab_text_4, ::StorageFragment),
         CPU(R.string.tab_text_5, { CPUFragment() }),
         BATTERY(R.string.tab_text_6, ::BatteryFragment),
-        CAMERA(R.string.tab_text_7, ::CameraFragment);
-//        SCREEN(R.string.tab_text_7, ::ScreenFragment);
+        DISPLAY(R.string.tab_text_7, ::ScreenFragment),
+        CAMERA(R.string.tab_text_8, ::CameraFragment);
 
         companion object {
             fun fromPosition(position: Int) = values().getOrElse(position) {

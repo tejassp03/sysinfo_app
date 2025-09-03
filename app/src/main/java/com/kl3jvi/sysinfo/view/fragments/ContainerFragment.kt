@@ -20,6 +20,7 @@ class ContainerFragment : Fragment(R.layout.fragment_container) {
         R.drawable.ic_storage,
         R.drawable.ic_cpu,
         R.drawable.ic_battery,
+        R.drawable.ic_screen,
         R.drawable.ic_camera
     )
 
@@ -38,7 +39,7 @@ class ContainerFragment : Fragment(R.layout.fragment_container) {
                 tab.setIcon(tabIcons[position])
             }.attach()
         }
-        binding.viewPager.offscreenPageLimit = 5
+        binding.viewPager.offscreenPageLimit = 6
     }
 
     override fun onDestroy() {
