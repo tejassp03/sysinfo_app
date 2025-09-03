@@ -79,12 +79,11 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:padding="10dp"
-                            android:weightSum="4">
+                            android:orientation="vertical"
+                            android:padding="10dp">
 
                             <LinearLayout
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
                                 android:orientation="vertical">
@@ -93,135 +92,78 @@
                                     android:id="@+id/textView1"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
                                     android:text="System Storage"
                                     android:textColor="#FFFF" />
+
+                                <ProgressBar
+                                    android:id="@+id/systemStorage"
+                                    style="?android:attr/progressBarStyleHorizontal"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:progressTint="#FFFF" />
+
+                                <TextView
+                                    android:id="@+id/textView4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="end"
+                                    android:text="99 %"
+                                    android:textColor="#FFFF"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
 
                                 <TextView
                                     android:id="@+id/textView2"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
                                     android:text="Internal Storage"
                                     android:textColor="#FFFF" />
 
-                                <TextView
-                                    android:id="@+id/textView3"
+                                <ProgressBar
+                                    android:id="@+id/internalProgress"
+                                    style="?android:attr/progressBarStyleHorizontal"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="Battery"
-                                    android:textColor="#FFFF" />
-                                    
+                                    android:progressTint="#FFFF" />
+
+                                <TextView
+                                    android:id="@+id/internalPercentage"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="end"
+                                    android:textColor="#FFFF"
+                                    android:textStyle="bold"
+                                    tools:text="100 %" />
+                            </LinearLayout>
+                            
+                            
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
                                 <TextView
                                     android:id="@+id/textView5"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="Capacity"
+                                    android:text="Battery Capacity"
                                     android:textColor="#FFFF" />
-                            </LinearLayout>
 
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_weight="2"
-                                android:orientation="vertical">
-
-                                <LinearLayout
+                                <TextView
+                                    android:id="@+id/batteryCapacity"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <ProgressBar
-                                        android:id="@+id/systemStorage"
-                                        style="?android:attr/progressBarStyleHorizontal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:progressTint="#FFFF" />
-
-                                    <TextView
-                                        android:id="@+id/textView4"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:gravity="end"
-                                        android:text="99 %"
-                                        android:textColor="#FFFF"
-                                        android:textStyle="bold" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <ProgressBar
-                                        android:id="@+id/internalProgress"
-                                        style="?android:attr/progressBarStyleHorizontal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:progressTint="#FFFF" />
-
-                                    <TextView
-                                        android:id="@+id/internalPercentage"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:gravity="end"
-                                        android:textColor="#FFFF"
-                                        android:textStyle="bold"
-                                        tools:text="100 %" />
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <ProgressBar
-                                        android:id="@+id/batteryProgress"
-                                        style="?android:attr/progressBarStyleHorizontal"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:indeterminateTint="#FFFF"
-                                        android:max="100"
-                                        android:progressTint="#FFFF" />
-
-                                    <TextView
-                                        android:id="@+id/batteryPercentage"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:gravity="end"
-                                        android:textColor="#FFFF"
-                                        android:textStyle="bold"
-                                        tools:text="100 %" />
-                                </LinearLayout>
-                                
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:orientation="vertical">
-
-                                    <TextView
-                                        android:id="@+id/batteryCapacity"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_weight="1"
-                                        android:gravity="end"
-                                        android:text="5000mAh"
-                                        android:textColor="#FFFF"
-                                        android:textStyle="bold" />
-                                </LinearLayout>
-
+                                    android:layout_height="wrap_content"
+                                    android:gravity="start"
+                                    android:text="5000mAh"
+                                    android:textColor="#FFFF"
+                                    android:textStyle="bold" />
                             </LinearLayout>
 
                         </LinearLayout>
