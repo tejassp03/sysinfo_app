@@ -88,4 +88,29 @@ class StorageProvider(
         val (total, used) = getExternalStorageUsage()
         return (used.toDouble() / total * 100).toInt()
     }
+
+    fun getInternalStorageInfo(): Triple<Long, Long, Long> {
+        val (total, used) = getInternalStorageUsage()
+        return Triple(total, used, total - used)
+    }
+
+    fun getExternalStorageInfo(): Triple<Long, Long, Long> {
+        val (total, used) = getExternalStorageUsage()
+        return Triple(total, used, total - used)
+    }
+
+    private fun formatBytes(bytes: Long): String {
+        val gb = bytes / (1024.0 * 1024.0 * 1024.0)
+        return String.format("%.1f GB", gb)
+    }
+
+    fun getFormattedInternalStorage(): Triple<String, String, String> {
+        val (total, used, available) = getInternalStorageInfo()
+        return Triple(formatBytes(total), formatBytes(used), formatBytes(available))
+    }
+
+    fun getFormattedExternalStorage(): Triple<String, String, String> {
+        val (total, used, available) = getExternalStorageInfo()
+        return Triple(formatBytes(total), formatBytes(used), formatBytes(available))
+    }
 }

@@ -2,90 +2,222 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/internal"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Internal"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
 
+            <!-- Internal Storage Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
 
-        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
-            android:id="@+id/progress_bar_internal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            app:rcBackgroundColor="#babdbe"
-            app:rcBackgroundPadding="5dp"
-            app:rcIconPadding="5dp"
-            app:rcIconSize="35dp"
-            app:rcIconSrc="@drawable/ic_root_slash"
-            app:rcMax="100"
-            app:rcProgressColor="@color/colorAccent"
-            app:rcRadius="8dp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
-        <TextView
-            android:id="@+id/external"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="External"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
 
+                        <TextView
+                            android:id="@+id/internal"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Internal Storage"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
 
-        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
-            android:id="@+id/externalSize"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            app:rcBackgroundColor="#babdbe"
-            app:rcBackgroundPadding="5dp"
-            app:rcIconPadding="2dp"
-            app:rcIconSize="35dp"
-            app:rcIconSrc="@drawable/ic_external_size"
-            app:rcMax="100"
-            app:rcProgressColor="@color/colorAccent"
-            app:rcRadius="8dp" />
+                        <TextView
+                            android:id="@+id/internalUsage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 GB / 0 GB"
+                            android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/ramTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="RAM"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+                    </LinearLayout>
 
-        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
-            android:id="@+id/ramProgress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            app:rcBackgroundColor="#babdbe"
-            app:rcBackgroundPadding="5dp"
-            app:rcIconPadding="5dp"
-            app:rcIconSize="35dp"
-            app:rcIconSrc="@drawable/ic_cpu"
-            app:rcMax="100"
-            app:rcProgressColor="@color/colorAccent"
-            app:rcRadius="8dp" />
+                    <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+                        android:id="@+id/progress_bar_internal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:rcBackgroundColor="#e8e8e8"
+                        app:rcBackgroundPadding="6dp"
+                        app:rcIconPadding="6dp"
+                        app:rcIconSize="32dp"
+                        app:rcIconSrc="@drawable/ic_root_slash"
+                        app:rcMax="100"
+                        app:rcProgressColor="@color/colorAccent"
+                        app:rcRadius="10dp" />
 
-    </LinearLayout>
+                    <TextView
+                        android:id="@+id/internalAvailable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Available: 0 GB"
+                        android:textColor="#666666"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- External Storage Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/external"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="External Storage"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/externalUsage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 GB / 0 GB"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+                        android:id="@+id/externalSize"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:rcBackgroundColor="#e8e8e8"
+                        app:rcBackgroundPadding="6dp"
+                        app:rcIconPadding="6dp"
+                        app:rcIconSize="32dp"
+                        app:rcIconSrc="@drawable/ic_external_size"
+                        app:rcMax="100"
+                        app:rcProgressColor="@color/colorAccent"
+                        app:rcRadius="10dp" />
+
+                    <TextView
+                        android:id="@+id/externalAvailable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Available: 0 GB"
+                        android:textColor="#666666"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- RAM Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/ramTitle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="RAM Usage"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/ramUsage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0 GB / 0 GB"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+                        android:id="@+id/ramProgress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:rcBackgroundColor="#e8e8e8"
+                        app:rcBackgroundPadding="6dp"
+                        app:rcIconPadding="6dp"
+                        app:rcIconSize="32dp"
+                        app:rcIconSrc="@drawable/ic_cpu"
+                        app:rcMax="100"
+                        app:rcProgressColor="#ff9800"
+                        app:rcRadius="10dp" />
+
+                    <TextView
+                        android:id="@+id/ramAvailable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Available: 0 GB"
+                        android:textColor="#666666"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

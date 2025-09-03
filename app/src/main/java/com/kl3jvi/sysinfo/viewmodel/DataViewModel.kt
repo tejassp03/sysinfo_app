@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
 class DataViewModel(
     cpuDataProvider: CpuDataProvider,
     ramDataProvider: RamDataProvider,
-    storageProvider: StorageProvider,
+    private val storageProvider: StorageProvider,
     batteryDataProvider: BatteryDataProvider,
     gpuDataProvider: GpuDataProvider,
     deviceDataProvider: DeviceDataProvider,
@@ -35,6 +35,9 @@ class DataViewModel(
     val systemStoragePercentage = storageProvider.calculateSystemPercentage()
     val internalStoragePercentage = storageProvider.calculateInternalPercentage()
     val externalStoragePercentage = storageProvider.calculateExternalPercentage()
+
+    fun getFormattedInternalStorage() = storageProvider.getFormattedInternalStorage()
+    fun getFormattedExternalStorage() = storageProvider.getFormattedExternalStorage()
 
     val batteryInfo =
         batteryDataProvider.getBatteryStatus().map(BatteryInfo::toDomainModel).ifChanged()

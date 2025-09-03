@@ -25,20 +25,66 @@ class StorageFragment : Fragment(R.layout.storage_fragment) {
     }
 
     private fun setupUIElements() {
+        setupStorageInfo()
+        setupRamInfo()
+    }
+
+    private fun setupStorageInfo() {
+        // Internal Storage
+        val (internalTotal, internalUsed, internalAvailable) = dataViewModel.getFormattedInternalStorage()
         binding.progressBarInternal.progress = dataViewModel.internalStoragePercentage.toFloat()
+        binding.internalUsage.text = "$internalUsed / $internalTotal"
+        binding.internalAvailable.text = "Available: $internalAvailable"
+
+        // External Storage  
+        val (externalTotal, externalUsed, externalAvailable) = dataViewModel.getFormattedExternalStorage()
         binding.externalSize.progress = dataViewModel.externalStoragePercentage.toFloat()
-        
+        binding.externalUsage.text = "$externalUsed / $externalTotal"
+        binding.externalAvailable.text = "Available: $externalAvailable"
+    }
+
+    private fun setupRamInfo() {
         dataViewModel.ramInfo.onEach { result ->
             when (result) {
                 is UiResult.Success -> {
-                    val usedPercentage = 100 - result.data.percentageAvailable
+                    val ramData = result.data
+                    val usedPercentage = 100 - ramData.percentageAvailable
+                    
                     binding.ramProgress.progress = usedPercentage.toFloat()
+                    binding.ramUsage.text = "${getUsedFromTotal(ramData.total, usedPercentage)} / ${ramData.total}"
+                    binding.ramAvailable.text = "Available: ${ramData.available}"
                 }
                 is UiResult.Error -> {
-                    // Handle error case if needed
+                    binding.ramUsage.text = "N/A"
+                    binding.ramAvailable.text = "Available: N/A"
                 }
             }
         }.launchIn(viewLifecycleOwner.lifecycleScope)
+    }
+
+    private fun getUsedFromTotal(totalStr: String, usedPercentage: Int): String {
+        return try {
+            val total = parseMemoryString(totalStr)
+            val used = total * (usedPercentage / 100.0)
+            formatMemory(used)
+        } catch (e: Exception) {
+            "N/A"
+        }
+    }
+
+    private fun parseMemoryString(memStr: String): Double {
+        val cleanStr = memStr.replace(Regex("[^\\d.]"), "")
+        val value = cleanStr.toDoubleOrNull() ?: 0.0
+        return when {
+            memStr.contains("GB", ignoreCase = true) -> value
+            memStr.contains("MB", ignoreCase = true) -> value / 1024.0
+            memStr.contains("KB", ignoreCase = true) -> value / (1024.0 * 1024.0)
+            else -> value / (1024.0 * 1024.0 * 1024.0) // Assume bytes
+        }
+    }
+
+    private fun formatMemory(sizeInGB: Double): String {
+        return String.format("%.1f GB", sizeInGB)
     }
 
     override fun onDestroy() {
