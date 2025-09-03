@@ -28,7 +28,7 @@ data class CpuInfo(
 }
 
 fun CpuInfo.toDomainModel(): CpuData {
-    val displayProcessorName = if (Build.BOARD == "mt6877") {
+    val displayProcessorName = if (Build.HARDWARE == "mt6877") {
         "MediaTek Dimensity 900"
     } else {
         processorName
