@@ -67,12 +67,7 @@ class DashboardFragment : Fragment(R.layout.dashboard_fragment), KoinComponent {
         )
 
         dataViewModel.batteryInfo.onEach { type ->
-            val isCharging = type.data[6].details == "Charging"
-            batteryPercentage.text =
-                if (isCharging) "Charging ${type.data.first().details}" else type.data.first().details
-            batteryProgress.progress = type.data.first().details.parsePercentage()
-            Log.e("TEst", type.data.first().details)
-            batteryProgress.isIndeterminate = isCharging
+            binding.batteryCapacity.text = type.data.first().details
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
         binding.topBar.setOnClickListener(::animatedMovement)
