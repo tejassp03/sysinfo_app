@@ -1,7 +1,7 @@
 {
   "devices": [
     {
-      "board": "BVL-AN16",
+      "board": "k6877v1_64_k419",
       "details": {
         "Device Name": "Optimus Rhino 5G 1",
         "Model": "OR5G1",
