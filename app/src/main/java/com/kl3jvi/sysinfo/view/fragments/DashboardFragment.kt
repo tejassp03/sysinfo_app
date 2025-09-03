@@ -66,9 +66,7 @@ class DashboardFragment : Fragment(R.layout.dashboard_fragment), KoinComponent {
             internalPercentage
         )
 
-        dataViewModel.batteryInfo.onEach { type ->
-            binding.batteryCapacity.text = type.data.first().details
-        }.launchIn(viewLifecycleOwner.lifecycleScope)
+        binding.batteryCapacity.text = "5000mAh"
 
         binding.topBar.setOnClickListener(::animatedMovement)
     }
