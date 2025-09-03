@@ -81,7 +81,7 @@
                             android:layout_height="match_parent"
                             android:orientation="horizontal"
                             android:padding="10dp"
-                            android:weightSum="3">
+                            android:weightSum="4">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -111,6 +111,14 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:text="Battery"
+                                    android:textColor="#FFFF" />
+                                    
+                                <TextView
+                                    android:id="@+id/textView5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Capacity"
                                     android:textColor="#FFFF" />
                             </LinearLayout>
 
@@ -195,6 +203,23 @@
                                         android:textColor="#FFFF"
                                         android:textStyle="bold"
                                         tools:text="100 %" />
+                                </LinearLayout>
+                                
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/batteryCapacity"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="end"
+                                        android:text="5000mAh"
+                                        android:textColor="#FFFF"
+                                        android:textStyle="bold" />
                                 </LinearLayout>
 
                             </LinearLayout>

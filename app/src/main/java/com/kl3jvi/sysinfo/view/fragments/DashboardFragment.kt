@@ -8,6 +8,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.sysinfo.R
 import com.example.sysinfo.cpuProgress
 import com.example.sysinfo.databinding.DashboardFragmentBinding
@@ -43,6 +44,7 @@ class DashboardFragment : Fragment(R.layout.dashboard_fragment), KoinComponent {
         binding.arcProgress.setRamValueAsync(dataViewModel.ramInfo)
         setupUIElements()
         binding.listView.itemAnimator = null
+        binding.listView.layoutManager = GridLayoutManager(requireContext(), 2)
 
 
         dataViewModel.cpuInfo

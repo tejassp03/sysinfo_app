@@ -1,5 +1,6 @@
 package com.kl3jvi.sysinfo.data.model
 
+import android.os.Build
 import com.kl3jvi.sysinfo.domain.models.CpuData
 import com.kl3jvi.sysinfo.utils.clearEmptyEntries
 import com.kl3jvi.sysinfo.utils.toAffirmative
@@ -27,8 +28,14 @@ data class CpuInfo(
 }
 
 fun CpuInfo.toDomainModel(): CpuData {
+    val displayProcessorName = if (Build.BOARD == "mt6877") {
+        "MediaTek Dimensity 900"
+    } else {
+        processorName
+    }
+    
     val info = listOf(
-        "Processor Name" to processorName,
+        "Processor Name" to displayProcessorName,
         "ABI" to abi,
         "Core Number" to coreNumber.toString(),
         "Arm Neon" to hasArmNeon.toAffirmative(),
@@ -41,7 +48,7 @@ fun CpuInfo.toDomainModel(): CpuData {
         .clearEmptyEntries()
 
     return CpuData(
-        processorName,
+        displayProcessorName,
         abi,
         coreNumber,
         hasArmNeon,

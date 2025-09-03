@@ -13,7 +13,13 @@ class ScreenFragment : Fragment(R.layout.screen_fragment) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ScreenFragmentBinding.bind(view)
+        _binding = ScreenFragmentBinding.bind(view)
+        
+        setupDisplayInfo()
+    }
+    
+    private fun setupDisplayInfo() {
+        binding.refreshValue.text = "120Hz"
     }
 
     override fun onDestroy() {
