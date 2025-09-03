@@ -11,7 +11,6 @@ import com.kl3jvi.sysinfo.data.provider.BatteryDataProvider
 import com.kl3jvi.sysinfo.data.provider.CpuDataProvider
 import com.kl3jvi.sysinfo.data.provider.DeviceDataProvider
 import com.kl3jvi.sysinfo.data.provider.GpuDataProvider
-import com.kl3jvi.sysinfo.data.provider.NetworkInfoProvider
 import com.kl3jvi.sysinfo.data.provider.RamDataProvider
 import com.kl3jvi.sysinfo.data.provider.StorageProvider
 import com.kl3jvi.sysinfo.data.provider.SystemInfoProvider
@@ -30,8 +29,7 @@ class DataViewModel(
     batteryDataProvider: BatteryDataProvider,
     gpuDataProvider: GpuDataProvider,
     deviceDataProvider: DeviceDataProvider,
-    systemInfoProvider: SystemInfoProvider,
-    networkInfoProvider: NetworkInfoProvider
+    systemInfoProvider: SystemInfoProvider
 ) : ViewModel() {
 
     val systemStoragePercentage = storageProvider.calculateSystemPercentage()
@@ -53,14 +51,6 @@ class DataViewModel(
 
     val deviceData = deviceDataProvider.getDeviceInformation()
 
-    init {
-        viewModelScope.launch(Dispatchers.IO) {
-
-            networkInfoProvider.scanNetwork().forEach {
-                Log.e("c", it)
-            }
-        }
-    }
 }
 
 private fun <T> Flow<T>.logFlow(name: String = "Flow Logged"): Flow<T> {

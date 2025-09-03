@@ -16,7 +16,6 @@ import com.kl3jvi.sysinfo.data.provider.BatteryDataProvider
 import com.kl3jvi.sysinfo.data.provider.CpuDataProvider
 import com.kl3jvi.sysinfo.data.provider.DeviceDataProvider
 import com.kl3jvi.sysinfo.data.provider.GpuDataProvider
-import com.kl3jvi.sysinfo.data.provider.NetworkInfoProvider
 import com.kl3jvi.sysinfo.data.provider.RamDataProvider
 import com.kl3jvi.sysinfo.data.provider.StorageProvider
 import com.kl3jvi.sysinfo.data.provider.SystemInfoProvider
@@ -44,7 +43,6 @@ private val providerModule = module {
     singleOf(::BatteryDataProvider)
     singleOf(::DeviceDataProvider)
     singleOf(::SystemInfoProvider)
-    singleOf(::NetworkInfoProvider)
 }
 
 private val appModule = module {

@@ -63,5 +63,29 @@
             app:rcProgressColor="@color/colorAccent"
             app:rcRadius="8dp" />
 
+        <TextView
+            android:id="@+id/ramTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="RAM"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <com.akexorcist.roundcornerprogressbar.IconRoundCornerProgressBar
+            android:id="@+id/ramProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:rcBackgroundColor="#babdbe"
+            app:rcBackgroundPadding="5dp"
+            app:rcIconPadding="5dp"
+            app:rcIconSize="35dp"
+            app:rcIconSrc="@drawable/ic_cpu"
+            app:rcMax="100"
+            app:rcProgressColor="@color/colorAccent"
+            app:rcRadius="8dp" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
