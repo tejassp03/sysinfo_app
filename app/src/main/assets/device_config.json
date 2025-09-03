@@ -1,0 +1,15 @@
+{
+  "devices": [
+    {
+      "board": "BVL-AN16",
+      "details": {
+        "Device Name": "Optimus Rhino 5G 1",
+        "Model": "OR5G1",
+        "Manufacturer": "OptimusLogic",
+        "Brand": "Optimus Rhino",
+        "Device": "Optimus_Rhino_5G_1",
+        "Board": "rhino_v1_64"
+      }
+    }
+  ]
+}
